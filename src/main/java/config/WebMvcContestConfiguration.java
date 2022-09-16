@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 //MVC를 구현하기전에 컨피그를 상속 받아서 오버라이드 하는방식으로 사용!
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = ("mvcexam.controller"))
+@ComponentScan(basePackages = ("SpringMVC_war_exploded.controller"))
 public class WebMvcContestConfiguration extends WebMvcConfigurerAdapter {
     //css 이미 js등등의 것들도 같이 호환 시켜주려고 함
     public void addResoureceHamdlers(ResourceHandlerRegistry registry){
@@ -31,7 +31,7 @@ public class WebMvcContestConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver getInternalResourceViewResolver(){
         InternalResourceViewResolver resolver=new InternalResourceViewResolver();
-        resolver.setPrefix("(/WEB-INF/views/");
+        resolver.setPrefix("(/WEB-INF/views/");//view안에 있는 걸 실행!
         resolver.setSuffix(".jsp");//가장 마지막에 main을 붙혀달라는것
         return resolver;
     }
